@@ -2,6 +2,7 @@ package com.UdeA.Ciclo3.modelos;
 
 import javax.persistence.*;
 
+
 @Entity
 @Table(name="Empresa")
 public class Empresa {
@@ -63,5 +64,3 @@ public class Empresa {
         this.NIT = NIT;
     }
 }
-
-

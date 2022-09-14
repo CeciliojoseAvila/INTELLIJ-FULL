@@ -1,6 +1,12 @@
 package com.UdeA.Ciclo3.modelos;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import javax.xml.crypto.Data;
+import java.util.Date;
+
+
 
 @Entity
 @Table(name="Movimientos")
@@ -14,13 +20,17 @@ public class MovimientoDinero {
     @JoinColumn(name = "empleado_id")
     private Empleado usuario;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date fecha;
+
     public MovimientoDinero() {
     }
 
-    public MovimientoDinero(long monto, String concepto, Empleado empleado) {
+    public MovimientoDinero(long monto, String concepto, Empleado empleado, Date fecha) {
         this.monto = monto;
         this.concepto = concepto;
         this.usuario = empleado;
+        this.fecha=fecha;
     }
 
     public int getId() {
@@ -53,5 +63,13 @@ public class MovimientoDinero {
 
     public void setUsuario(Empleado empleado) {
         this.usuario = empleado;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 }
